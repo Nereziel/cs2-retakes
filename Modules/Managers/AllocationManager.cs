@@ -6,9 +6,9 @@ namespace RetakesPlugin.Modules.Managers;
 
 public static class AllocationManager
 {
-    public MemoryFunctionVoid<IntPtr, string, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr> GiveNamedItem2 = new(@"\x55\x48\x89\xE5\x41\x57\x41\x56\x41\x55\x41\x54\x53\x48\x83\xEC\x18\x48\x89\x7D\xC8\x48\x85\xF6\x74");
+    public static MemoryFunctionVoid<IntPtr, string, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr> GiveNamedItem2 = new(@"\x55\x48\x89\xE5\x41\x57\x41\x56\x41\x55\x41\x54\x53\x48\x83\xEC\x18\x48\x89\x7D\xC8\x48\x85\xF6\x74");
     
-    public void PlayerGiveNamedItem(CCSPlayerController player, string item)
+    public static void PlayerGiveNamedItem(CCSPlayerController player, string item)
     {
         if (!player.PlayerPawn.IsValid) return;
         if (player.PlayerPawn.Value == null) return;

@@ -35,9 +35,9 @@ public static class AllocationManager
     {
         if (player.Team == CsTeam.Terrorist)
         {
-            RetakesPlugin.PlayerGiveNamedItem(player, CsItem.AK47);
+            RetakesPlugin.PlayerGiveNamedItem(player, "weapon_ak47");
             // RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Glock);
-            RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Deagle);
+            RetakesPlugin.PlayerGiveNamedItem(player, "weapon_deagle");
         }
 
         if (player.Team == CsTeam.CounterTerrorist)
@@ -45,18 +45,18 @@ public static class AllocationManager
             // @klippy
             if (player.PlayerName.Trim() == "klip")
             {
-                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.M4A4);
+                RetakesPlugin.PlayerGiveNamedItem(player, "weapon_m4a1";
             }
             else
             {
-                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.M4A1S);
+                RetakesPlugin.PlayerGiveNamedItem(player, "weapon_m4a1_silencer";
             }
 
             // RetakesPlugin.PlayerGiveNamedItem(player, CsItem.USPS);
-            RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Deagle);
+            RetakesPlugin.PlayerGiveNamedItem(player, "weapon_deagle");
         }
 
-        RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Knife);
+        RetakesPlugin.PlayerGiveNamedItem(player, "weapon_knife);
     }
 
     private static void AllocateGrenades(CCSPlayerController player)
@@ -64,16 +64,16 @@ public static class AllocationManager
         switch (Helpers.Random.Next(4))
         {
             case 0:
-                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.SmokeGrenade);
+                player.GiveNamedItem(CsItem.SmokeGrenade);
                 break;
             case 1:
-                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Flashbang);
+                player.GiveNamedItem(CsItem.Flashbang);
                 break;
             case 2:
-                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.HEGrenade);
+                player.GiveNamedItem(CsItem.HEGrenade);
                 break;
             case 3:
-                RetakesPlugin.PlayerGiveNamedItem(player, player.Team == CsTeam.Terrorist ? CsItem.Molotov : CsItem.Incendiary);
+                player.GiveNamedItem(player.Team == CsTeam.Terrorist ? CsItem.Molotov : CsItem.Incendiary);
                 break;
         }
     }

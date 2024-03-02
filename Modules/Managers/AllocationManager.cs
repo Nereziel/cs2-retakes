@@ -56,7 +56,7 @@ public static class AllocationManager
             RetakesPlugin.PlayerGiveNamedItem(player, "weapon_deagle");
         }
 
-        RetakesPlugin.PlayerGiveNamedItem(player, "weapon_knife);
+        RetakesPlugin.PlayerGiveNamedItem(player, "weapon_knife");
     }
 
     private static void AllocateGrenades(CCSPlayerController player)

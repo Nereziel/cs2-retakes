@@ -6,17 +6,7 @@ namespace RetakesPlugin.Modules.Managers;
 
 public static class AllocationManager
 {
-    public static MemoryFunctionVoid<IntPtr, string, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr> GiveNamedItem2 = new(@"\x55\x48\x89\xE5\x41\x57\x41\x56\x41\x55\x41\x54\x53\x48\x83\xEC\x18\x48\x89\x7D\xC8\x48\x85\xF6\x74");
-    
-    public static void PlayerGiveNamedItem(CCSPlayerController player, string item)
-    {
-        if (!player.PlayerPawn.IsValid) return;
-        if (player.PlayerPawn.Value == null) return;
-        if (!player.PlayerPawn.Value.IsValid) return;
-        if (player.PlayerPawn.Value.ItemServices == null) return;
 
-        GiveNamedItem2.Invoke(player.PlayerPawn.Value.ItemServices.Handle, item, 0, 0, 0, 0, 0, 0);
-    }
 
     public static void Allocate(CCSPlayerController player)
     {
@@ -45,9 +35,9 @@ public static class AllocationManager
     {
         if (player.Team == CsTeam.Terrorist)
         {
-            PlayerGiveNamedItem(player, CsItem.AK47);
-            // PlayerGiveNamedItem(player, CsItem.Glock);
-            PlayerGiveNamedItem(player, CsItem.Deagle);
+            RetakesPlugin.PlayerGiveNamedItem(player, CsItem.AK47);
+            // RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Glock);
+            RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Deagle);
         }
 
         if (player.Team == CsTeam.CounterTerrorist)
@@ -55,18 +45,18 @@ public static class AllocationManager
             // @klippy
             if (player.PlayerName.Trim() == "klip")
             {
-                PlayerGiveNamedItem(player, CsItem.M4A4);
+                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.M4A4);
             }
             else
             {
-                PlayerGiveNamedItem(player, CsItem.M4A1S);
+                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.M4A1S);
             }
 
-            // PlayerGiveNamedItem(player, CsItem.USPS);
-            PlayerGiveNamedItem(player, CsItem.Deagle);
+            // RetakesPlugin.PlayerGiveNamedItem(player, CsItem.USPS);
+            RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Deagle);
         }
 
-        PlayerGiveNamedItem(player, CsItem.Knife);
+        RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Knife);
     }
 
     private static void AllocateGrenades(CCSPlayerController player)
@@ -74,16 +64,16 @@ public static class AllocationManager
         switch (Helpers.Random.Next(4))
         {
             case 0:
-                PlayerGiveNamedItem(player, CsItem.SmokeGrenade);
+                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.SmokeGrenade);
                 break;
             case 1:
-                PlayerGiveNamedItem(player, CsItem.Flashbang);
+                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.Flashbang);
                 break;
             case 2:
-                PlayerGiveNamedItem(player, CsItem.HEGrenade);
+                RetakesPlugin.PlayerGiveNamedItem(player, CsItem.HEGrenade);
                 break;
             case 3:
-                PlayerGiveNamedItem(player, player.Team == CsTeam.Terrorist ? CsItem.Molotov : CsItem.Incendiary);
+                RetakesPlugin.PlayerGiveNamedItem(player, player.Team == CsTeam.Terrorist ? CsItem.Molotov : CsItem.Incendiary);
                 break;
         }
     }

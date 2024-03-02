@@ -45,11 +45,11 @@ public static class AllocationManager
             // @klippy
             if (player.PlayerName.Trim() == "klip")
             {
-                RetakesPlugin.PlayerGiveNamedItem(player, "weapon_m4a1";
+                RetakesPlugin.PlayerGiveNamedItem(player, "weapon_m4a1");
             }
             else
             {
-                RetakesPlugin.PlayerGiveNamedItem(player, "weapon_m4a1_silencer";
+                RetakesPlugin.PlayerGiveNamedItem(player, "weapon_m4a1_silencer");
             }
 
             // RetakesPlugin.PlayerGiveNamedItem(player, CsItem.USPS);

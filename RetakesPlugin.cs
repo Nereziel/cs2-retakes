@@ -6,7 +6,7 @@ using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Entities.Constants;
 using CounterStrikeSharp.API.Modules.Utils;
-using CounterStrikeSharp.API.Modules.Memory;
+using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using RetakesPlugin.Modules;
 using RetakesPlugin.Modules.Enums;
 using RetakesPlugin.Modules.Configs;
@@ -71,14 +71,14 @@ public class RetakesPlugin : BasePlugin
         _translator = new Translator(Localizer);
     }
     public static MemoryFunctionVoid<IntPtr, string, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr> GiveNamedItem2 = new(@"\x55\x48\x89\xE5\x41\x57\x41\x56\x41\x55\x41\x54\x53\x48\x83\xEC\x18\x48\x89\x7D\xC8\x48\x85\xF6\x74");
-    public static void PlayerGiveNamedItem(CCSPlayerController player, string item)
+    public static void PlayerGiveNamedItem(CCSPlayerController player, CsItem item)
     {
         if (!player.PlayerPawn.IsValid) return;
         if (player.PlayerPawn.Value == null) return;
         if (!player.PlayerPawn.Value.IsValid) return;
         if (player.PlayerPawn.Value.ItemServices == null) return;
 
-        GiveNamedItem2.Invoke(player.PlayerPawn.Value.ItemServices.Handle, item, 0, 0, 0, 0, 0, 0);
+        GiveNamedItem2.Invoke(player.PlayerPawn.Value.ItemServices.Handle, item.ToString(), 0, 0, 0, 0, 0, 0);
     }
 
     public override void Load(bool hotReload)
